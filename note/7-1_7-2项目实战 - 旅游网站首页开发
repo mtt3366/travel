@@ -1,0 +1,117 @@
+`npm install stylus --save`
+`npm install stylus-loader --save`
+不需要配置,直接可以使用
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716c4303bcb2735?w=295&h=839&f=png&s=34505)
+home.vue是最外层的容器组件,其他的拆分组件放在components里面
+
+引入并把它声明为局部组件,注册到home之中
+
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716c453ed472274?w=853&h=545&f=png&s=193129)
+
+在使用的时候要用小写,声明注册的时候,在js里面大写
+
+## 使用stylus,和rem
+
+html fontsize为50像素
+
+所以这里1 rem为50像素的尺寸
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716c6e3d3291933?w=1006&h=647&f=png&s=1052741)
+
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716c6f62b151fc4?w=564&h=257&f=png&s=108508)
+
+
+设计师给的图是2倍px的图,name我们把font-size设置成50px,在设计图里比如说是86px的高度,那说明实际项目中是43px,43/50就是0.86,所以实际开发就是就是0.86rem,这样通过设计师给的图,我们把设计时的尺寸和rem巧妙地关联在了一起
+
+
+
+## 根据不同路由显示不同的页面的原理
+首先main.js把App.vue挂载到index.html模板文件的#app div 上,然后index.html这一个文件里面的内容显示的就是App.vue
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716c5f79612ccaf?w=1241&h=747&f=png&s=89967)
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716c5e6a1db7079?w=844&h=484&f=png&s=68378)
+
+在App.vue里面就根据不同的内容显示不同的路由
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716c61d4f097367?w=585&h=390&f=png&s=30624)
+
+如果是/就显示home组件
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716c62ac2ced528?w=584&h=380&f=png&s=39046)
+
+
+## 使用less
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716c74c7be9739c?w=839&h=531&f=png&s=39667)
+https://cli.vuejs.org/zh/guide/css.html#%E5%BC%95%E7%94%A8%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90
+直接使用
+
+https://honey3go.github.io/2017/11/16/%E6%95%99%E7%A8%8B-%E5%9C%A8vue-cli%E4%B8%AD%E4%BD%BF%E7%94%A8less%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9A%E5%86%99%E5%85%A5%E5%8D%95%E7%BB%84%E4%BB%B6%E3%80%81%E5%BC%95%E5%85%A5%E5%92%8C%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/
+
+## iconfont 的使用和代码优化
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d50c3a14e8f3?w=1029&h=527&f=png&s=61647)
+
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d51e6903594e?w=341&h=302&f=png&s=13081)
+
+我们需要这几个文件
+
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d587c97a4827?w=680&h=374&f=png&s=122939)
+
+放到这里
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d594e87cc26e?w=245&h=280&f=png&s=8455)
+
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d5a27c4b2aef?w=885&h=518&f=png&s=163092)
+
+然后改一下路径
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d5b20c75493a?w=692&h=467&f=png&s=57092)
+
+然后再main,js中全局引入
+
+使用
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d5d9a5cee839?w=502&h=172&f=png&s=22407)
+
+### 代码优化
+#### 设置stylus 的全局css
+将颜色提取为主题色
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d641cc9700e8?w=758&h=350&f=png&s=91804)
+定义一个**全局的**样式的变量文件 varibles.styl
+
+样式引入前面要加一个@符号
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d65993efb243?w=1224&h=697&f=png&s=529361)
+
+引入路径过长,可以使用@别名
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d6651e8720fe?w=658&h=316&f=png&s=263708)
+
+css中引入的时候使用别名前面要加`~`号,
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d66fbb10e87d?w=797&h=126&f=png&s=85705)
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d6ad526b0a8c?w=627&h=127&f=png&s=77687)
+
+#### 在webpack配置里使用别名
+
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d683425e5891?w=1075&h=521&f=png&s=438156)
+
+设置完webpack配置之后,服务要重启
+
+#### 设置less全局变量
+
+和stylus一样
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d74513b405e3?w=805&h=176&f=png&s=27782)
+
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d74748898f05?w=746&h=150&f=png&s=12484)
+
+
+![](https://user-gold-cdn.xitu.io/2020/4/12/1716d74d312cbd90?w=439&h=262&f=png&s=30999)
