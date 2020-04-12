@@ -179,3 +179,18 @@ vue中用`<router-link>`这样的标签进行路由跳转
 首屏会稍微慢一点,因为他会把的HTML文件请求下来之后,然后把一个包含所有逻辑的js文件请求下来,搜索引擎只认识html里面的你日用,不认识js里面的内容,所以seo比较差,排名效果比较差,vue中可以通过其他技术来解决这些问题,比如服务器端渲染等,这样,单页面应用就是一个完美的前端页面开发的解决方案了
 
 ## 移动端网页项目代码初始化
+
+1. 加入手机meta标签,防止用手放大缩小`<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">`
+2. 引入reset.css,就是重置页面的样式表,因为在不同的手机浏览器上,默认的样式是不统一的,要做统一
+
+    项目的入口文件是main.js
+
+
+    ![](https://user-gold-cdn.xitu.io/2020/4/11/17169832b267e9f4?w=624&h=379&f=png&s=39203)
+
+    直接在项目的入口文件引入即可
+
+3. 引入border.css,解决1像素边框的问题,因为有的手机像素比较高,屏幕为2倍屏或者三倍,如果在页面上写`border:1px solid red;`,而在2倍屏上是2个物理像素的高度,三倍屏就是三个物理像素的高度,为了解决亿像素的边框会被显示成多像素的问题,要引入一个1像素边框的解决方案,一个css文件,其实是借助scal,放大缩小,来实现真正的1px物理像素边框的实现
+4. 移动端开发300毫秒点击延迟的问题,某些机型上点击时间会有300毫秒的延迟,要引入fastclick这个库解决,`npm install fastclick --sava`把fastclick这个包安装到项目的依赖之中,`--save`的意思是,不管是开发版本中,还是线上的代码,都需要使用`fastclick`
+    ![](https://user-gold-cdn.xitu.io/2020/4/11/17169a3642841a67)
+5. 使用iconfont,在iconfont新建一个项目
