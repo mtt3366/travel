@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <template>
   <div class="wrapper">
     <swiper :options="swiperOption" ref="mySwiper">
