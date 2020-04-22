@@ -1,16 +1,19 @@
 <template>
   <div>
     <city-header></city-header>
+    <city-search></city-search>
   </div>
 </template>
 
 <script>
 import CityHeader from './cpmponents/Header'
-import axios from 'axios'
+import CitySearch from './cpmponents/Search'
+// import axios from 'axios'
 export default {
   name: 'City',
   components: {
-    CityHeader
+    CityHeader,
+    CitySearch
   },
   data () {
     return {
