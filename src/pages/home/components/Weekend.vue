@@ -20,29 +20,8 @@
 <script>
 export default {
   name: 'HomeWeekend',
-  data () {
-    return {
-      weekendList: [
-        {
-          id: '001',
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1511/ea/eaf1bdc38aed9e6690.img.jpg_200x200_3032bf56.jpg',
-          title: '牛首山文化旅游区(AAAA景区)',
-          desc: '这是个很值的景点！这是一个低调奢华的景点！没进园区就有一个超壮观的音乐喷泉！这个景点每一处都很精致！我对它的印象是既大气又精致！'
-        },
-        {
-          id: '002',
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1511/ea/eaf1bdc38aed9e6690.img.jpg_200x200_3032bf56.jpg',
-          title: '牛首山文化旅游区(AAAA景区)',
-          desc: '这是个很值的景点！这是一个低调奢华的景点！没进园区就有一个超壮观的音乐喷泉！这个景点每一处都很精致！我对它的印象是既大气又精致！'
-        },
-        {
-          id: '003',
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1511/ea/eaf1bdc38aed9e6690.img.jpg_200x200_3032bf56.jpg',
-          title: '牛首山文化旅游区(AAAA景区)',
-          desc: '这是个很值的景点！这是一个低调奢华的景点！没进园区就有一个超壮观的音乐喷泉！这个景点每一处都很精致！我对它的印象是既大气又精致！'
-        }
-      ]
-    }
+  props: {
+    weekendList: Array
   }
 }
 </script>

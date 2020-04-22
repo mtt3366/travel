@@ -4,7 +4,7 @@
       热销推荐
     </div>
     <ul>
-      <li class="item" v-for="item in hotList" :key="item.id" >
+      <li class="item" v-for="item in recommendList" :key="item.id" >
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgUrl" alt="">
         </div>
@@ -21,29 +21,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      hotList: [
-        {
-          id: '001',
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1511/ea/eaf1bdc38aed9e6690.img.jpg_200x200_3032bf56.jpg',
-          title: '牛首山文化旅游区(AAAA景区)',
-          desc: '这是个很值的景点！这是一个低调奢华的景点！没进园区就有一个超壮观的音乐喷泉！这个景点每一处都很精致！我对它的印象是既大气又精致！'
-        },
-        {
-          id: '002',
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1511/ea/eaf1bdc38aed9e6690.img.jpg_200x200_3032bf56.jpg',
-          title: '牛首山文化旅游区(AAAA景区)',
-          desc: '这是个很值的景点！这是一个低调奢华的景点！没进园区就有一个超壮观的音乐喷泉！这个景点每一处都很精致！我对它的印象是既大气又精致！'
-        },
-        {
-          id: '003',
-          imgUrl: 'https://imgs.qunarzz.com/sight/p0/1511/ea/eaf1bdc38aed9e6690.img.jpg_200x200_3032bf56.jpg',
-          title: '牛首山文化旅游区(AAAA景区)',
-          desc: '这是个很值的景点！这是一个低调奢华的景点！没进园区就有一个超壮观的音乐喷泉！这个景点每一处都很精致！我对它的印象是既大气又精致！'
-        }
-      ]
-    }
+  props: {
+    recommendList: Array
   }
 }
 </script>
@@ -53,7 +32,6 @@ export default {
   .title{
     line-height: .8rem;
     background: #eee;
-    margin-top: .2rem;
     text-indent: .2rem;
   }
   .item{

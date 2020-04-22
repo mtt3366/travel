@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper  ref="mySwiper">
+    <swiper  ref="mySwiper" :options="swiperOption">
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div
           class="icon"
@@ -8,7 +8,7 @@
           :key="item.id"
         >
           <div class="icon-img">
-            <img class="icon-img-content" :src="item.imgSrc" alt="">
+            <img class="icon-img-content" :src="item.imgUrl" alt="">
           </div>
           <p class="icon-desc">{{item.desc}}</p>
         </div>
@@ -20,55 +20,14 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconList: Array
+  },
   data () {
     return {
-      iconList: [
-        {
-          id: '0001',
-          imgSrc: 'https://s.qunarzz.com/homenode/images/touchheader/hotel.png',
-          desc: '酒店'
-        },
-        {
-          id: '0002',
-          imgSrc: 'https://s.qunarzz.com/homenode/images/touchheader/flight.png',
-          desc: '机票'
-        },
-        {
-          id: '0003',
-          imgSrc: 'https://s.qunarzz.com/homenode/images/touchheader/piao.png',
-          desc: '景点门票'
-        },
-        {
-          id: '0004',
-          imgSrc: 'https://s.qunarzz.com/homenode/images/touchheader/package.png',
-          desc: '度假'
-        },
-        {
-          id: '0005',
-          imgSrc: 'https://s.qunarzz.com/homenode/images/touchheader/hotel.png',
-          desc: '酒店'
-        },
-        {
-          id: '0006',
-          imgSrc: 'https://s.qunarzz.com/homenode/images/touchheader/flight.png',
-          desc: '机票'
-        },
-        {
-          id: '0007',
-          imgSrc: 'https://s.qunarzz.com/homenode/images/touchheader/piao.png',
-          desc: '景点门票'
-        },
-        {
-          id: '0008',
-          imgSrc: 'https://s.qunarzz.com/homenode/images/touchheader/package.png',
-          desc: '度假'
-        },
-        {
-          id: '0009',
-          imgSrc: 'https://s.qunarzz.com/homenode/images/touchheader/package.png',
-          desc: '度假'
-        }
-      ]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {
