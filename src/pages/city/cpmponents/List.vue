@@ -5,7 +5,7 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <div class="button">{{this.$store.state.city}}</div>
           </div>
         </div>
       </div>
@@ -15,6 +15,7 @@
           <div class="button-wrapper"
               v-for="item of hot"
               :key="item.id"
+               @click="handleCityClick(item.name)"
           >
             <div class="button">{{item.name}}</div>
           </div>
@@ -47,6 +48,11 @@ export default {
     cities: Object,
     hot: Array,
     letter: String
+  },
+  methods: {
+    handleCityClick (city) {
+      this.$store.dispatch('changeCity', city)
+    }
   },
   mounted () {
     // 在dom挂在完毕执行
