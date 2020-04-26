@@ -13,8 +13,8 @@
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
           <div class="button-wrapper"
-              v-for="item of hot"
-              :key="item.id"
+               v-for="item of hot"
+               :key="item.id"
                @click="handleCityClick(item.name)"
           >
             <div class="button">{{item.name}}</div>
@@ -28,8 +28,8 @@
       >
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list"
-          v-for="innerItem of item"
-          :key="innerItem.id"
+             v-for="innerItem of item"
+             :key="innerItem.id"
              @click="handleCityClick(innerItem.name)"
         >
           <div class="item border-bottom">
@@ -54,14 +54,21 @@ export default {
   methods: {
     handleCityClick (city) {
       // this.$store.commit('changeCity', city)
+      console.log('1')
       this.changeCity(city)
+      console.log('2')
       this.$router.push('/')
+      console.log('3')
     },
     ...mapMutations(['changeCity'])
   },
   mounted () {
+    const options = {// 解决better-scroll导致点击事件失效的原因和解决方法
+      click: true,
+      tap: true
+    }
     // 在dom挂在完毕执行
-    this.scroll = new Bscroll(this.$refs.wrapper)
+    this.scroll = new Bscroll(this.$refs.wrapper, options)
     // console.log(this.hot)
   },
   computed: {
